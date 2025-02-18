@@ -8,8 +8,8 @@ brasil_2023 = pd.read_csv('datasets/Brasil-2023-limpo.csv')
 brasil_2024 = pd.read_csv('datasets/Brasil-2024-limpo.csv')
 
 # Concatena os datasets em um único DataFrame
-# data = pd.concat([brasil_2020, brasil_2021, brasil_2022, brasil_2023, brasil_2024], ignore_index=True)
-data = brasil_2024
+data = pd.concat([brasil_2020, brasil_2021, brasil_2022, brasil_2023, brasil_2024], ignore_index=True)
+# data = brasil_2024
 
 # Remove linhas completamente nulas no DataFrame
 data = data.dropna(how='all').reset_index(drop=True)
@@ -102,7 +102,7 @@ data = pd.concat([data] + novas_colunas_binarias, axis=1)
 
 # 7. Salvar o novo dataset processado com as colunas binárias
 try:
-    data.to_csv('datasets/Brasil-2024-processado.csv', index=False)
+    data.to_csv('datasets/Brasil-2020-2024-processado.csv', index=False)
     print(f"Novo dataset salvo com {data.shape[0]} linhas e {data.shape[1]} colunas.")
 except Exception as e:
     print(f"Erro ao salvar o arquivo CSV: {e}")
